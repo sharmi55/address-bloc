@@ -5,16 +5,18 @@ class AddressBook
 
   def initialize
     @entries = []
+
   end
 
   #=> remove_entry
 
   def remove_entry
-    @entries.each do |x|
-      if email == x.email
+    @entries.each do |e|
+      if email == e.email
       delete_entry = entry
       end
     end
+    @entries.delete(delete_entry)
   end
 
   #=> add_entry
