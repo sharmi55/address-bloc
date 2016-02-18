@@ -27,6 +27,7 @@ class AddressBook
       @entries.each do |entry|
         if email == entry.email
           delete_entry = entry
+        end
       end
   end
 end
