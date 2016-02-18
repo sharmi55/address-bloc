@@ -34,5 +34,19 @@ end
             expect(new_entry.phone_number).to eq('010.012.1815')
             expect(new_entry.email).to eq('augusta.king@lovelace.com')
           end
+
+      describe "#remove_entry" do
+          it "adds entries and then removes only one entry from the address book" do
+            book = AddressBook.new
+            book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+            book.add_entry('Tim Rothko', '000.333.8888', 'tim.r@mail.com')
+            book.add_entry('Rita Mace', '111.222.4444', 'R.Mace@email.com')
+
+            expect(book.entries.size).to eq(3)
+            book.remove_entry(name, phone_number, email)
+            expect(book.entries.size).to eq(2)
+            expect(book.entries.email).to eq("tim.r@mail.com")
+          end
         end
+  end
 end
