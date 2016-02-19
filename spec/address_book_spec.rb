@@ -29,8 +29,9 @@ RSpec.describe AddressBook do
       book.add_entry(name,phone_number,email)
 
       expect(book.entries.size).to eq 2
-      book.remove_entry("Tim.R@mail.com")
+      book.remove_entry
       expect(book.entries.size).to eq 1
+      expect(book.entries.email).to eq("TimR@mail.com")
     end
   end
 
@@ -44,6 +45,7 @@ RSpec.describe AddressBook do
       expect(new_entry.name).to eq('Ada Lovelace')
       expect(new_entry.phone_number).to eq('010.012.1815')
       expect(new_entry.email).to eq('augusta.king@lovelace.com')
-     end
+    end
    end
+
 end
