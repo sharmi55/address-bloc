@@ -4,15 +4,14 @@ class AddressBook
   attr_reader :entries
 
   def initialize
-    @entries =[]
+    @entries = []
   end
 
   def remove_entry(entry)
     @entries.delete if entry.email == email
-    end
     @entries.remove_entry
   end
-end
+
 # other methods starting here
 
   def add_entry(name, phone_number,email)
@@ -28,4 +27,3 @@ end
     @entries.insert(index, Entry.new(name, phone_number, email))
     end
   end
-end
