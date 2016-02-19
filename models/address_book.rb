@@ -10,13 +10,11 @@ class AddressBook
 
   #=> remove_entry
 
-  def remove_entry
+  def remove_entry(email)
     @entries.each do |e|
-      if email == e.email
-      delete_entry = entry
-      end
+      @entries.delete(e) if e.email == email
     end
-    @entries.delete(delete_entry)
+
   end
 
   #=> add_entry

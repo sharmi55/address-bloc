@@ -29,7 +29,7 @@ end
       book.add_entry(name,phone_number,email)
 
       expect(book.entries.size).to eq(2)
-      book.remove_entry
+      book.remove_entry("TimR@mail.com")
       expect(book.entries.size).to eq (1)
       expect(book.entries.email).to eq("TimR@mail.com")
   end
