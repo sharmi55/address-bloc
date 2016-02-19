@@ -13,8 +13,6 @@ class AddressBook
   def remove_entry(email)
     @entries.each do |e|
       @entries.delete(e) if e.email == email
-    end
-
   end
 
   #=> add_entry
