@@ -5,7 +5,6 @@ class AddressBook
 
   def initialize
     @entries = []
-
   end
 
   #=> remove_entry
@@ -28,5 +27,5 @@ class AddressBook
     end
 
     @entries.insert(index,Entry.new(name,phone_number,email))
-    end
   end
+end
