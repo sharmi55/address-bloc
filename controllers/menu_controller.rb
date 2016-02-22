@@ -11,10 +11,11 @@ class MenuController
 
     puts "Main Menu - #{@address_book.entries.count} entries"
     puts "1 - View all entries"
-    puts "2 - Create an entry"
-    puts "3 - Search for an entry"
-    puts "4 - Import entries from a CSV"
-    puts "5 - Exit"
+    puts "2 - View entry number n"
+    puts "3 - Create an entry"
+    puts "4 - Search for an entry"
+    puts "5 - Import entries from a CSV"
+    puts "6 - Exit"
     print "Enter your selection: "
 
     selection = gets.to_i
@@ -24,19 +25,28 @@ class MenuController
       system "clear"
       view_all_entries
       main_menu
+
+#=> new option on Menu
     when 2
+      system "clear"
+      entry_number
+      main_menu
+
+#=> ask entry number if invalid ask enter valid enty number.
+
+    when 3
       system "clear"
       create_entry
       main_menu
-    when 3
+    when 4
       system "clear"
       search_entries
       main_menu
-    when 4
+    when 5
       system "clear"
       read_csv
       main_menu
-    when 5
+    when 6
       puts "Good-bye!"
 
       exit(0)
@@ -47,7 +57,7 @@ class MenuController
       main_menu
     end
   end
-
+#=>
   def view_all_entries
 
     @address_book.entries.each do |entry|
@@ -105,5 +115,23 @@ class MenuController
       entry_submenu(entry)
     end
   end
+
+  #=> new method to #2 in main menu selection
+
+
+  def entry_number
+    puts "Please type in the entry number: "
+    selection.gets.chomp.to_i
+
+    if selection.each_with_index {|entry, number| puts "#{entry} is number #{number}"}
+
+    else
+    system "clear"
+    puts "#{number} is not valid , please enter a valid entry number"
+    entry_number
+    end
+  end
+
+  #=>
 
 end
