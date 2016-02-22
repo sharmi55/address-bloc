@@ -1,26 +1,24 @@
 require_relative '../models/address_book'
 
 RSpec.describe AddressBook do
+    let(:book) {AddressBook}
+
   describe "attributes" do
     it "responds to entries" do
-      book = AddressBook.new
       expect(book).to respond_to(:entries)
     end
 
-    it "initializes enties as an array" do
-      book = AddressBook.new
-      expect(book.entries).to be_an(Array)
+    it "initializes entries as an array" do
+      expect(book.entries).to be_a(Array)
     end
 
     it "initializes entries as empty" do
-      book = AddressBook.new
       expect(book.entries.size).to eq(0)
     end
   end
 
   describe "#remove_entry" do
     it "removes only one entry from address book" do
-      book = AddressBook.new
       book.add_entry('Tim Rothko','111.333.5555', 'TimR@mail.com')
 
       name = "Lana Lan"
@@ -34,7 +32,6 @@ RSpec.describe AddressBook do
     end
 
     it "removes the correct entry from address book" do
-      book = AddressBook.new
       book.add_entry('Tim Rothko','111.333.5555', 'TimR@mail.com')
 
       name = "Lana Lan"
@@ -53,7 +50,6 @@ RSpec.describe AddressBook do
 # other stuff
   describe "#add_entry" do
     it "Adds only one entry to the address book" do
-      book = AddressBook.new
       book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
       new_entry = book.entries[]
 
@@ -62,5 +58,15 @@ RSpec.describe AddressBook do
       expect(new_entry.email).to eq('augusta.king@lovelace.com')
     end
    end
+# Test CSVs
+  describe "#import_from_csv" do
+    it "imports the correct number of entries" do
 
+      book.import_from_csv("entries.csv")
+      book.size = book.entries.size
+
+      expect(book_size).to eq(5)
+    end
+  end
+# Test CSVs
 end
