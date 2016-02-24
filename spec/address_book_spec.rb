@@ -11,6 +11,7 @@ RSpec.describe AddressBook do
   end
 #end helper method
   describe "attributes" do
+
     it "responds to entries" do
       expect(book).to respond_to(:entries)
     end
@@ -92,5 +93,34 @@ describe "#import_from_csv" do
       check_entry(entry_five, "Sussie", "555-555-2036", "sussie@blocmail.com")
     end
 
-  end
+
+# assignment 21: add test that will use data from entries_2.csv with three entries
+   it "imports the correct number of entries from another csv file" do
+
+     book.import_from_csv("entries_2.csv")
+     book_size = book.entries.size
+
+     # Check the size of the entries in AddressBook
+     expect(book_size).to eq(3)
+   end
+
+   it "imports the 1st entry from another csv file" do
+     book.import_from_csv("entries_2.csv")
+     entry_one = book.entries[0]
+     check_entry(entry_one, "Hana", "123.466.8965", "HanaBanana@mail.com")
+   end
+
+   it "imports the 2nd entry from another csv file" do
+     book.import_from_csv("entries_2.csv")
+     entry_two = book.entries[1]
+     check_entry(entry_two, "Luna", "234.789.9750", "meow@mail.com")
+   end
+
+   it "imports the 3rd entry from another csv file" do
+     book.import_from_csv("entries_2.csv")
+     entry_three = book.entries[2]
+     check_entry(entry_three,"Tom", "777.765.5643", "T.Ford@mail.com")
+   end
+ end
+#assignment 21
 end

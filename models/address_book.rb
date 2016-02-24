@@ -7,7 +7,7 @@ class AddressBook
   def initialize
     @entries = []
   end
-
+# remove_entry
   def remove_entry(name, phone_number,email)
     delete_entry = []
 
@@ -31,6 +31,7 @@ class AddressBook
 
     @entries.insert(index, Entry.new(name, phone_number, email))
   end
+# import entries from csv file.
 
   def import_from_csv(file_name)
     csv_text = File.read(file_name)
@@ -41,4 +42,7 @@ class AddressBook
       add_entry(row_hash["name"], row_hash["phone_number"], row_hash["email"])
       end
     end
+  # assignment 21
+
+  #assignment 21
 end
