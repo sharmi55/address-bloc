@@ -29,7 +29,7 @@ class MenuController
 #=> new option on Menu
     when 2
       system "clear"
-      entry_number
+      entry_number_submenu
       main_menu
 
 #=> ask entry number if invalid ask enter valid enty number.
@@ -119,17 +119,17 @@ class MenuController
   #=> new method to #2 in main menu selection
 
 
-  def entry_number
+  def entry_number_submenu
     puts "Please type in the entry number: "
-    selection.gets.chomp.to_i
-
-    if selection.each_with_index {|entry, number| puts "#{entry} is number #{number}"}
-
-    else
-    system "clear"
-    puts "#{number} is not valid , please enter a valid entry number"
-    entry_number
+    chosen_index = gets.chomp.to_i
+    if chosen_index > @address_book.entries.count
+      puts "Please enter a valid number"
+      entry_number_submenu
     end
+
+    chosen_entry = @address_book.entries[chosen_index]
+    puts "#{chosen_entry}"
+    main_menu
   end
 
   #=>
