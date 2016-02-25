@@ -66,5 +66,16 @@ class AddressBook
      return nil
   end #end of binary_search()
 # end of checkpoint 22
+#start assignment 22
 
+  def iterative_search(name)
+
+      @entries.each do |entry|
+        if entry.name == name
+          return entry
+        end
+      end
+        return nil
+      end
+#end assignment 22
 end
