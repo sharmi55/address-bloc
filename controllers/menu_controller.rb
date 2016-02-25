@@ -90,7 +90,6 @@ class MenuController
     if match
       puts match.to_s
       search_submenu(match)
-
     else
       puts "No match found for #{name}"
     end
