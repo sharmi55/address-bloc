@@ -18,7 +18,9 @@ class AddressBook
     end
   end
 
-
+def expunge_all_entries
+  @entries = AddressBook.new
+end
 
 # other methods starting here
 

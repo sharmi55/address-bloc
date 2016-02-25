@@ -39,7 +39,8 @@ class MenuController
       main_menu
     when 5
       system "clear"
-      expunge_all_entries
+      @address_book.expunge_all_entries
+      puts "All your entries have now been expunged from this Addess Book!"
       main_menu
 
     when 6
@@ -83,34 +84,6 @@ class MenuController
     system "clear"
     puts "New entry created"
   end
-
-  # assignment 23
-  def expunge_all_entries
-    puts "Are you sure you want to delete all entries?"
-    selection = gets.chomp
-
-    puts "1 - No, take me back to the main menu"
-    puts "2 - Yes, let's get rid of it all!"
-
-    selection = gets.to_i
-
-    case selection
-    when 1
-      system "clear"
-      main_menu
-    when 2
-      system "clear"
-      @address_book.entries.each do |remove|
-
-      puts "All your entries have now been expunged from this Addess Book!"
-      main_menu
-    else
-      system "clear"
-      puts "Sorry, that is not a valid input"
-      main_menu
-    end
-  end
-  #end assignment 23
 
   def read_csv
   end
