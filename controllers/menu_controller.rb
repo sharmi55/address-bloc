@@ -14,7 +14,8 @@ class MenuController
     puts "2 - Create an entry"
     puts "3 - Search for an entry"
     puts "4 - Import entries from a CSV"
-    puts "5 - Exit"
+    puts "5 - Delete all entries"
+    puts "6 - Exit"
     print "Enter your selection: "
 
     selection = gets.to_i
@@ -37,6 +38,11 @@ class MenuController
       read_csv
       main_menu
     when 5
+      system "clear"
+      expunge_all_entries
+      main_menu
+
+    when 6
       puts "Good-bye!"
 
       exit(0)
@@ -78,6 +84,34 @@ class MenuController
     puts "New entry created"
   end
 
+  # assignment 23
+  def expunge_all_entries
+    puts "Are you sure you want to delete all entries?"
+    selection = gets.chomp
+
+    puts "1 - No, take me back to the main menu"
+    puts "2 - Yes, let's get rid of it all!"
+
+    selection = gets.to_i
+
+    case selection
+    when 1
+      system "clear"
+      main_menu
+    when 2
+      system "clear"
+      @address_book.entries.each do |remove|
+
+      puts "All your entries have now been expunged from this Addess Book!"
+      main_menu
+    else
+      system "clear"
+      puts "Sorry, that is not a valid input"
+      main_menu
+    end
+  end
+  #end assignment 23
+
   def read_csv
   end
 
@@ -105,5 +139,7 @@ class MenuController
       entry_submenu(entry)
     end
   end
+
+
 
 end

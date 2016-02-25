@@ -28,6 +28,19 @@ RSpec.describe AddressBook do
 #removed for this exercise as it's not in the checkpoint instructions
 #remove_entry finish
 
+#detonate_all_entries assignment 23
+describe "#expunge_all_entries" do
+  it "adds entries then deletes all entries"
+  book.add_entry("Ada Lovelace", "010.012.1815", "augusta.king@lovelace.com")
+  book.add_entry("Bob", "555-555-5415", "bob@blocmail.com")
+  book.add_entry("Sally", "555-555-4646", "sally@blocmail.com")
+
+  book.expunge_all_entries
+  expect(book.entries.size).to eq(0)
+  end
+end
+#end assignment 23
+
 
  describe "#add_entry" do
    it "adds only one entry to the address book" do
